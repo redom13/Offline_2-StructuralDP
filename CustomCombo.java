@@ -4,14 +4,12 @@ public class CustomCombo implements FoodItem{
     private String name;
     private double price;
     private double discount;
-    private ArrayList<FreeItemDecorator> freeItems;
     protected ArrayList<FoodItem> items;
     
     public CustomCombo(String name) {
         this.name = name;
         this.discount = 0;
         this.price = 0;
-        this.freeItems = new ArrayList<FreeItemDecorator>();
         items = new ArrayList<FoodItem>();
     }
 
@@ -51,15 +49,12 @@ public class CustomCombo implements FoodItem{
         for(FoodItem item:items){
             details+="\n  -"+item.getName();
         }
-        for(FreeItemDecorator item:freeItems){
-            details+="\n  -"+item.getName();
-        }
         details+="\nTotal - "+(int)price+"\nDiscount - "+(int)discount+"%\nDiscounted Total - "+(int)Math.ceil(price-discount*0.01*price)+"tk";
         return details;
     }
 
     public void setFreeItem(FoodItem item){
-        this.freeItems.add(new FreeItemDecorator(item));
+        this.items.add(new FreeItemDecorator(item));
     }
 
     public void setPrice(double price) {

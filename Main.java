@@ -33,23 +33,24 @@ public class Main {
                             // In order to only allow available items
                             if (item.getName().toLowerCase().contains(itemName.toLowerCase())) {
                                 combo.addItem(item);
-                                System.out.println("Item added\n");
+                                System.out.println("Item added Successfully\n");
                                 break;
                             }
-                            else {
-                                System.out.println("Item not available\n");
-                            }
+                            // else {
+                            //     System.out.println("Item not available\n");
+                            // }
                         }
                     } else if (command.equalsIgnoreCase("Remove")) {
                         String itemName = scn.next();
                         for (FoodItem item : menu) {
                             if (item.getName().toLowerCase().contains(itemName.toLowerCase())) {
                                 combo.removeItem(item);
+                                System.out.println("Item removed Successfully\n");
                                 break;
                             }
-                            else {
-                                System.out.println("Item not available\n");
-                            }
+                            // else {
+                            //     System.out.println("Item not available\n");
+                            // }
                         }
                     } else if (command.equalsIgnoreCase("Free")) {
                         String itemName = scn.next();
@@ -68,6 +69,9 @@ public class Main {
                         menu.add(combo);    
                         System.out.println(combo.getDetails());
                         break;
+                    }
+                    else {
+                        System.out.println("Invalid command\n");
                     }
                 }
             }
